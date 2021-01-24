@@ -13,14 +13,14 @@ public class PriorityController {
     @Autowired
     private PriorityService priorityService;
 
-    @GetMapping
-    public ResponseEntity getAll(){
-        return ResponseEntity.ok(priorityService.findAll());
+    @GetMapping("/{id}")
+    public ResponseEntity getAll(@PathVariable Long id){
+        return ResponseEntity.ok(priorityService.findById(id));
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity getById(@PathVariable Long id){
-        return ResponseEntity.ok(priorityService.findById(id));
+    @GetMapping("/all")
+    public ResponseEntity getAll(){
+        return ResponseEntity.ok(priorityService.findAll());
     }
 
     @PostMapping
